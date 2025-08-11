@@ -1,0 +1,12 @@
+personal_project:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      # server: "{{ env_var('DB_HOST') }}"
+      server: host.docker.internal
+      port: "{{ env_var('DB_PORT') | as_number }}"
+      schema: "{{ env_var('DB_SCHEMA') }}"
+      username: "{{ env_var('DB_USER') }}"
+      password: "{{ env_var('DB_PASSWORD') }}"
+      database: "{{ env_var('DB_SCHEMA') }}"

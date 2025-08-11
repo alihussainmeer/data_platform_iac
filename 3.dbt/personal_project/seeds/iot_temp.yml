@@ -1,0 +1,41 @@
+version: 2
+
+seeds:
+  - name: iot_temp
+    description: |
+      This seed contains IoT temperature sensor data. Each row represents a temperature reading
+      from a device at a specific timestamp. The dataset includes fields such as device identifier,
+      timestamp, temperature value, and possibly location or status information.
+      It is used for analytics, monitoring, and anomaly detection in IoT environments.
+
+    config:
+      schema: dl
+
+    columns:
+      - name: id
+        description: Unique identifier for each temperature log entry
+        tests:
+          - unique
+          - not_null
+
+      - name: room_id/id
+        description: Identifier for the room where temperature was recorded
+        tests:
+          - not_null
+
+      - name: noted_date
+        description: Timestamp when the temperature reading was recorded
+        tests:
+          - not_null
+
+      - name: temp
+        description: Temperature value recorded in degrees Celsius
+        tests:
+          - not_null
+
+      - name: out/in
+        description: Indicator showing if reading was taken inside or outside the room
+        tests:
+          - accepted_values:
+              values: ['In', 'Out']
+          - not_null

@@ -1,0 +1,78 @@
+version: 6.60.9
+
+type: DeclarativeSource
+
+check:
+  type: CheckStream
+  stream_names:
+    - Kaggle-temperature-readings-iot
+
+streams:
+  - type: DeclarativeStream
+    name: Kaggle-temperature-readings-iot
+    retriever:
+      type: SimpleRetriever
+      decoder:
+        type: ZipfileDecoder
+        decoder:
+          type: CsvDecoder
+          encoding: utf-8
+          delimiter: ","
+      requester:
+        type: HttpRequester
+        url: >-
+          https://www.kaggle.com/api/v1/datasets/download/atulanandjha/temperature-readings-iot-devices
+        http_method: GET
+      record_selector:
+        type: RecordSelector
+        extractor:
+          type: DpathExtractor
+          field_path: []
+    schema_loader:
+      type: InlineSchemaLoader
+      schema:
+        type: object
+        $schema: http://json-schema.org/schema#
+        properties:
+          id:
+            type:
+              - string
+              - "null"
+          temp:
+            type:
+              - string
+              - "null"
+          out/in:
+            type:
+              - string
+              - "null"
+          noted_date:
+            type:
+              - string
+              - "null"
+          room_id/id:
+            type:
+              - string
+              - "null"
+        additionalProperties: true
+
+spec:
+  type: Spec
+  connection_specification:
+    type: object
+    properties: {}
+
+metadata:
+  testedStreams:
+    stream_0:
+      streamHash: ad11f9fa446b445a056b0f48d54e74059e0bc977
+    Kaggle-temperature-readings-iot:
+      isStale: false
+      hasRecords: true
+      streamHash: d695021a6771fa2ecd378fda3938b65d22b65d5c
+      hasResponse: true
+      primaryKeysAreUnique: true
+      primaryKeysArePresent: true
+      responsesAreSuccessful: true
+  autoImportSchema:
+    Kaggle-temperature-readings-iot: true

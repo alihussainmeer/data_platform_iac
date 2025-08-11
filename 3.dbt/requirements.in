@@ -1,0 +1,3 @@
+dbt-core==1.7.*
+dbt-mysql==1.7.*
+mysql-connector-python==8.0.*

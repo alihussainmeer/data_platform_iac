@@ -1,0 +1,29 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTEdkOEVhcm4yRmd3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TlRBNE1UQXhPVE0xTlRKYUZ3MHpOVEE0TURneE9UUXdOVEphTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURHUTFXZ2RJTXVjS3QybTVWOElVN0pWZ1lNN3BqRm4yK202cUIxYXRqd3U5NnNMZndLaVZZYzVKVHAKN3hJWDVjZ0RaNTVIWGV5dGhFajE1WTNTenQ4YXNWSlJhM2tudGhKUUd5STZleEZFcXdWWEFpOEZyZG4wY2RHSApvNFdsUTJ5UnovTU9RNXc0amcxN2YzdlBsRzNuNTUrMzlCN0NuSFRydGRSMnVMTTdoVExLQWVSeVArWU5DR0szCmZqbis1WnpkdW02V0FDZEFuS2RvWnBaeFVEenFWOHhab1ZxaDhkaUc0bWIvTFRNUjIxK01NTEFDZ3VLY3NHUnIKc2haeUVyRjI5cDh1dGFJanIrSlZnblFHWVluc1lwOC9wT0VLTzdqYWp5eFQ5ZndyWXZLR1BnQkZYWVoxM0FkUQpkbHBHNTYxZENIckNweVM1VnpmUGNlQnRHWXJsQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUNmJVNS9Ialc4ck5kVVpaaFFPQXZ2dXNveVlEQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ1ZtM3BJNE94UQpCQ29wYTFDa1NtUTc4WUN6NHhGblRLWjZObDlvR2NnVXNrRy9oUkpOTUl2aW9Rak9qeUM0T3F5SkdTYjhHbjdZCmFPY2o5QXJZYUx5d0NCcXV6NkNLeFFtcFdVTUtUa3o5V094VHpvaUZiQmtPZUw3UHJFVzJpMzV1UVRPOEIwUG0KWDd5STFYSU9hemRCQnJGNnZEUHlDN09KQ1M5bGRuUjVGb1A0SmZPVGgvNy9aSGloay93YitSd0U3M1ZDbHdSYgo4dHp1a1RkbWVsVnVKdmM0VXJFVXZ1cTZIbDJtWG9EWXdpSXJFbEU2R1FOL0pLR3pCM3VLUzJNc2VRQ3lzVEtQClR6Sm4rdVR4aEhGWXN1RDJGYzQzRmRkKzlpQkpTdEFwZ1pxb20rRitaMmNaRXpSWlR3UzlLVmtIQzNPK01EeU4KR2ducjdSU3RxWTVRCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://2125B473D117823A2915219860BE0C50.gr7.us-west-2.eks.amazonaws.com
+  name: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+contexts:
+- context:
+    cluster: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+    user: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+  name: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+current-context: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:us-west-2:198457082874:cluster/dbt-airflow-cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - us-west-2
+      - eks
+      - get-token
+      - --cluster-name
+      - dbt-airflow-cluster
+      - --output
+      - json
+      command: aws
